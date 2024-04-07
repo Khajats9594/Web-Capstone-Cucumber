@@ -6,14 +6,14 @@ Feature: User Login
   Background:
     Given I am on the login page
 
-  @run @login
+  @run
   Scenario Outline: Validate the login function with valid credentials
     When I enter "<userName>" in the username text field and "<password>" in the password text field
     And I click on login
-    Then I should be logged in and redirected to the landing page
+    Then I should be logged in and redirected to the landing page and username "<userName>" should appear in landing page
     Examples:
       | userName   | password |
-      | johneki    | Pass@134 |
+      | johnekik    | Pass@456 |
 
   Scenario: Validate the login function with incorrect password
     When I enter "validUser1" in the username text field and "wrongPass1" in the password text field and click on login

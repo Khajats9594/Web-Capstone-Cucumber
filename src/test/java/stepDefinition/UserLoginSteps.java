@@ -33,11 +33,11 @@ public class UserLoginSteps {
         System.out.println("Step: I click on login");
     }
 
-    @Then("I should be logged in and redirected to the landing page")
-    public void iShouldBeLoggedInAndRedirected() {
+    @Then("I should be logged in and redirected to the landing page and username {string} should appear in landing page")
+    public void iShouldBeLoggedInAndRedirected(String username) {
 
         String loginUserName = landingPage.getLoginUserName();
-        Assert.assertTrue(loginUserName.equalsIgnoreCase("johne"),
+        Assert.assertTrue(loginUserName.equalsIgnoreCase(username),
                 "user is not successfully login into application");
         System.out.println("Step: I should be logged in and redirected to the landing page");
     }

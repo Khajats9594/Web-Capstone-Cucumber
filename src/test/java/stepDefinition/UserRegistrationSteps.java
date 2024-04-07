@@ -20,28 +20,10 @@ public class UserRegistrationSteps {
     private static boolean registrationExecuted = false;
     public LoginPage loginPage;
 
-    @Before(order = 0)
+    @Before()
     public void setup(){
         Driver.initDriver("chrome");
     }
-//    @Before(order = 1, value = "@run")
-//    public void runRegistrationIfNotExecuted(Scenario scenario) {
-//        if (!registrationExecuted && scenario.getSourceTagNames().contains("@run")) {
-//            // Execute registration scenario
-//            System.out.println("Running User Registration Scenario");
-//            // Your logic to execute registration scenario goes here
-//            registrationExecuted = true;
-//        }
-//    }
-//
-//    @Before(order = 2, value = "@run")
-//    public void runLoginIfRegistrationExecuted(Scenario scenario) {
-//        if (registrationExecuted && scenario.getSourceTagNames().contains("@run")) {
-//            // Execute login scenario
-//            System.out.println("Running User Login Scenario");
-//            // Your logic to execute login scenario goes here
-//        }
-//    }
     @After
     public void tearDown(){
         Driver.quitDriver();
