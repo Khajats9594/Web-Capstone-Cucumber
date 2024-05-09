@@ -7,7 +7,7 @@ Feature: User Registration
   Scenario: User registration with valid information
     When I fill in the registration form with the following details
       | First Name | Last Name | Username  | Password | Confirm Password | Gender |
-      | John       | Doe       | johnekik  | Pass@456 | Pass@456         | Male   |
+      | John       | Doe       | jkikk     | Pass@9876| Pass@9876        | Male   |
     And I submit the form
     Then I should be redirected to the login page
 

@@ -1,0 +1,6 @@
+<Environments>
+    <Environment name="QA">
+        <Parameter key="SalesUser1" value="Khajats"/>
+        <Parameter key="SalesUser1Password" value="Khajats@123"/>
+    </Environment>
+</Environments>

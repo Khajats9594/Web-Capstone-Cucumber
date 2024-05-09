@@ -19,54 +19,54 @@ public class BasePage {
     }
     private static final Logger logger = LogManager.getLogger(BasePage.class);
     protected void sendKey(By by, String value, WaitStrategy waitingStrategy) {
-        WebElement element = ExplicitWaitFactory.performExplicitWait(waitingStrategy, by);
+        WebElement element = ExplicitWaitFactory.performExplicitWaitForElement(waitingStrategy, by);
         element.sendKeys(value, Keys.ENTER);
         logger.info("{} value enter into the element : {}",value,element);
     }
 
     protected void click(By by, WaitStrategy waitingStrategy) {
-        WebElement element = ExplicitWaitFactory.performExplicitWait(waitingStrategy, by);
+        WebElement element = ExplicitWaitFactory.performExplicitWaitForElement(waitingStrategy, by);
         element.click();
         logger.info("{} is clicked ",element);
     }
 
     protected String getText(By by,WaitStrategy waitStrategy) {
-        String textOfElement = ExplicitWaitFactory.performExplicitWait(waitStrategy, by).getText();
+        String textOfElement = ExplicitWaitFactory.performExplicitWaitForElement(waitStrategy, by).getText();
         logger.info("{} is fetched",textOfElement);
         return textOfElement;
     }
 
     protected String getValueAttribute(By by, WaitStrategy waitStrategy){
-        String value = ExplicitWaitFactory.performExplicitWait(waitStrategy, by).getAttribute("value");
+        String value = ExplicitWaitFactory.performExplicitWaitForElement(waitStrategy, by).getAttribute("value");
         logger.info("value fetch from value attribute is {}",value);
         return value;
     }
 
     protected boolean isPresent(By by, WaitStrategy waitStrategy){
-        return ExplicitWaitFactory.performExplicitWait(waitStrategy,by).isDisplayed();
+        return ExplicitWaitFactory.performExplicitWaitForElement(waitStrategy,by).isDisplayed();
     }
     protected void moveOverElement(By by, WaitStrategy waitStrategy){
-        WebElement element = ExplicitWaitFactory.performExplicitWait(waitStrategy, by);
+        WebElement element = ExplicitWaitFactory.performExplicitWaitForElement(waitStrategy, by);
         Actions actions = new Actions(DriverManager.getDriver());
         actions.moveToElement(element);
     }
     protected void selectByVisibleText(By by,String text,WaitStrategy waitStrategy){
-        WebElement element = ExplicitWaitFactory.performExplicitWait(waitStrategy, by);
+        WebElement element = ExplicitWaitFactory.performExplicitWaitForElement(waitStrategy, by);
         Select select = new Select(element);
         select.selectByVisibleText(text);
     }
     protected  void selectByValue(By by,String value, WaitStrategy waitStrategy){
-        WebElement element = ExplicitWaitFactory.performExplicitWait(waitStrategy, by);
+        WebElement element = ExplicitWaitFactory.performExplicitWaitForElement(waitStrategy, by);
         Select select = new Select(element);
         select.selectByValue(value);
     }
     protected void selectByIndex(By by,int index, WaitStrategy waitStrategy){
-        WebElement element = ExplicitWaitFactory.performExplicitWait(waitStrategy, by);
+        WebElement element = ExplicitWaitFactory.performExplicitWaitForElement(waitStrategy, by);
         Select select = new Select(element);
         select.selectByIndex(index);
     }
     protected void selectByOption(By by,String value, WaitStrategy waitStrategy){
-        WebElement element = ExplicitWaitFactory.performExplicitWait(waitStrategy, by);
+        WebElement element = ExplicitWaitFactory.performExplicitWaitForElement(waitStrategy, by);
         Select select = new Select(element);
         List<WebElement> webElements = select.getAllSelectedOptions();
         for(WebElement ele : webElements){
@@ -89,6 +89,14 @@ public class BasePage {
         return DriverManager.getDriver().getTitle();
     }
     protected boolean isEnable(By by, WaitStrategy waitStrategy){
-        return ExplicitWaitFactory.performExplicitWait(waitStrategy,by).isEnabled();
+        return ExplicitWaitFactory.performExplicitWaitForElement(waitStrategy,by).isEnabled();
+    }
+
+    protected int getSize(By by){
+        return DriverManager.getDriver().findElements(by).size();
+    }
+
+    protected List<WebElement> getElements(By by){
+        return DriverManager.getDriver().findElements(by);
     }
 }

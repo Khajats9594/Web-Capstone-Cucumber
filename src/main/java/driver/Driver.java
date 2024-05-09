@@ -25,6 +25,7 @@ public final class Driver {
             }
             DriverManager.getDriver().get(PropertyReader.get(ConfigProperties.URL));
             DriverManager.getDriver().manage().window().maximize();
+            DriverManager.getDriver().manage().deleteAllCookies();
             DriverManager.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(Constants.getExplicitWait()));
         }
     }

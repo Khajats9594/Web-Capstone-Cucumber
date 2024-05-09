@@ -13,7 +13,7 @@ Feature: User Login
     Then I should be logged in and redirected to the landing page and username "<userName>" should appear in landing page
     Examples:
       | userName   | password |
-      | johnekik    | Pass@456 |
+      | jkikk      | Pass@9876|
 
   Scenario: Validate the login function with incorrect password
     When I enter "validUser1" in the username text field and "wrongPass1" in the password text field and click on login

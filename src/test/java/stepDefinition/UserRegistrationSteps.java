@@ -3,7 +3,9 @@ package stepDefinition;
 
 import driver.Driver;
 import io.cucumber.java.After;
+import io.cucumber.java.AfterAll;
 import io.cucumber.java.Before;
+import io.cucumber.java.BeforeAll;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -21,11 +23,11 @@ public class UserRegistrationSteps {
     public LoginPage loginPage;
 
     @Before()
-    public void setup(){
+    public  void setup(){
         Driver.initDriver("chrome");
     }
     @After
-    public void tearDown(){
+    public  void tearDown(){
         Driver.quitDriver();
     }
 
@@ -47,6 +49,7 @@ public class UserRegistrationSteps {
 
     @When("I submit the form")
     public void iSubmitTheForm() {
+        String str = "jdaldhjs";
         loginPage = registrationPage.clickOnRegistration();
         System.out.println("Step: I submit the form");
     }
